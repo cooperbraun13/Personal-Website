@@ -1,0 +1,27 @@
+{
+	"name": "copley-3",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"clean": "git clean -xdf .cache .turbo dist node_modules .wrangler .svelte-kit",
+		"biome": "biome check .",
+		"biome:fix": "biome check . --write",
+		"check-types": "turbo run check-types"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"prettier": "^3.5.0",
+		"prettier-plugin-svelte": "^3.3.3",
+		"turbo": "^2.5.2"
+	},
+	"packageManager": "pnpm@10.10.0",
+	"engines": {
+		"node": ">=18"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"ui": "tui",
+	"tasks": {
+		"build": {
+			"env": ["DATABASE_URL", "BLOB_READ_WRITE_TOKEN"],
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"outputs": [".svelte-kit/**", ".vercel/**"]
+		},
+		"typegen": {
+			"dependsOn": ["^typegen"]
+		},
+		"check-types": {
+			"dependsOn": ["^check-types"]
+		},
+		"clean": {
+			"cache": false
+		},
+		"//#clean": {
+			"cache": false
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"//#biome": {},
+		"//#biome:fix": {
+			"cache": false
+		}
+	}
+}
